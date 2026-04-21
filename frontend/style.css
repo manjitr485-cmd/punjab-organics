@@ -1,45 +1,73 @@
 body {
-    font-family: Arial;
     margin: 0;
-    background: #e6f7f1;
+    font-family: Arial, sans-serif;
+    background: #f2fbf7;
+    color: #064635;
 }
 
+/* HEADER */
 header {
-    background: green;
+    background: linear-gradient(90deg, #25D366, #4fc3f7);
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 25px;
 }
 
-#products {
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 30px;
+    background: white;
+    margin: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* TITLE */
+.title {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* PRODUCT GRID */
+.grid {
     display: grid;
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
     padding: 20px;
 }
 
+/* CARD */
 .card {
     background: white;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.2s;
 }
-.whatsapp-order {
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 9999;
 }
 
-.whatsapp-order a {
-    background-color: #25D366;
+.whatsapp a {
+    background: #25D366;
     color: white;
-    padding: 15px 20px;
-    border-radius: 30px;
+    padding: 15px 18px;
+    border-radius: 50px;
     text-decoration: none;
-    font-size: 16px;
     font-weight: bold;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.whatsapp-order a:hover {
-    background-color: #1ebd5a;
+.whatsapp a:hover {
+    background: #1ebd5a;
 }

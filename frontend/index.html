@@ -11,14 +11,25 @@
 <body>
 
 <header>
-    <h1>Punjab Organics</h1>
-    <p>Fresh Dairy Products Delivered</p>
+    <h1>Punjab Organics 🥛</h1>
+    <p>Fresh Dairy Delivered to Your Doorstep</p>
 </header>
 
-<h2 style="text-align:center;">Products</h2>
+<section class="hero">
+    <h2>Pure & Organic Dairy Products</h2>
+    <p>Healthy, fresh and directly from trusted farms</p>
+</section>
 
-<!-- PRODUCTS WILL LOAD HERE -->
-<div id="products"></div>
+<h2 class="title">Our Products</h2>
+
+<div id="products" class="grid"></div>
+
+<!-- WhatsApp Button -->
+<div class="whatsapp">
+    <a href="https://api.whatsapp.com/send?phone=916280022159&text=Hello%20Punjab%20Organics%2C%20I%20want%20to%20place%20an%20order">
+        🟢 Order on WhatsApp
+    </a>
+</div>
 
 <script>
 const API_BASE = "https://punjab-organics.onrender.com";
@@ -37,21 +48,14 @@ async function getProducts() {
             </div>
         `).join("");
 
-    } catch (error) {
-        console.log("Error loading products:", error);
+    } catch (err) {
         document.getElementById("products").innerHTML =
-            "<p>Failed to load products</p>";
+            "<p style='color:red;'>Failed to load products</p>";
     }
 }
 
 getProducts();
 </script>
-<div class="whatsapp-order">
-    <a href="https://api.whatsapp.com/send?phone=916280022159&text=Hello%20Punjab%20Organics,%20I%20want%20to%20place%20an%20order"
-       target="_blank" rel="noopener">
-        🟢 Order on WhatsApp
-    </a>
-</div>
 
 </body>
 </html>
