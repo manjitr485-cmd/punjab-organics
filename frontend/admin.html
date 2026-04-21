@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Punjab Organics</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Admin Panel</h1>
+    <p>Add Products</p>
+</header>
+
+<div class="container">
+
+    <h2>Add New Product</h2>
+
+    <input type="text" id="name" placeholder="Product Name">
+    <input type="number" id="price" placeholder="Price">
+
+    <button onclick="addProduct()">Add Product</button>
+
+    <h2>Products List</h2>
+    <div id="products"></div>
+
+</div>
+
+<script>
+const API_BASE = "https://punjab-organics.onrender.com";
+
+async function getProducts() {
+    const res = await fetch(`${API_BASE}/api/products`);
+    const data = await res.json();
+
+    document.getElementById("products").innerHTML =
+        data.map(p => `
+            <div class="card">
+                <h3>${p.name}</h3>
+                <p>₹${p.price}</p>
+            </div>
+        `).join("");
+}
+
+async function addProduct() {
+    const name = document.getElementById("name").value;
+    const price = document.getElementById("price").value;
+
+    await fetch(`${API_BASE}/api/products`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, price })
+    });
+
+    getProducts();
+}
+
+getProducts();
+</script>
+
+</body>
+</html>
